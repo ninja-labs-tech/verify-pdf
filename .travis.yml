@@ -1,0 +1,16 @@
+dist: Xenial
+language: node_js
+node_js:
+- lts/*
+cache: npm
+install:
+- npm install
+script:
+- npm test
+deploy:
+  provider: npm
+  email: mohammedessehemy@gmail.com
+  api_key:
+    secure: $NPM_TOKEN
+  on:
+    branch: master
