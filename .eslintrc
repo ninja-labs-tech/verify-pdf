@@ -1,0 +1,18 @@
+{
+    "extends": [
+        "airbnb-base",
+        "plugin:jest/recommended"
+    ],
+    "env": {
+        "es6": true,
+        "node": true,
+        "jest": true
+    },
+    "plugins": [
+        "jest"
+    ],
+    "rules": {
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/test.utils.js"]}],
+        "no-console": ["warn", { "allow": ["warn", "error", "info"] }],
+    }
+}

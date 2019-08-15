@@ -1,0 +1,60 @@
+{
+  "name": "@ninja-labs/verify-pdf",
+  "version": "0.0.1",
+  "description": "verify pdf files in JS",
+  "main": "index.js",
+  "engines": {
+    "node": ">=8.9"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "scripts": {
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test": "jest"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ninja-labs-tech/verify-pdf.git"
+  },
+  "keywords": [
+    "pdf",
+    "signature",
+    "digital signature",
+    "node",
+    "nodejs",
+    "verify"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ninja-labs-tech/verify-pdf/issues"
+  },
+  "homepage": "https://github.com/ninja-labs-tech/verify-pdf#readme",
+  "contributors": [
+    {
+      "name": "Mohammed Essehemy",
+      "url": "https://github.com/MohammedEssehemy"
+    }
+  ],
+  "dependencies": {
+    "node-forge": "^0.8.5"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.15.1",
+    "husky": "^3.0.3",
+    "jest": "^24.8.0",
+    "lint-staged": "^9.2.1",
+    "node-signpdf": "^1.0.2",
+    "pdfkit": "^0.10.0"
+  }
+}
