@@ -14,5 +14,6 @@
     "rules": {
         "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/test.utils.js"]}],
         "no-console": ["warn", { "allow": ["warn", "error", "info"] }],
+        "no-param-reassign": "warn"
     }
 }
