@@ -17,7 +17,7 @@ npm i @ninja-labs/verify-pdf
 ## Verifying
 
 ```javascript
-const { verifyPDF } = require('@ninja-labs/verify-pdf');
+const verifyPDF = require('@ninja-labs/verify-pdf');
 ...
 
 const signedPdfBuffer = getSignedPDFBuffer();
