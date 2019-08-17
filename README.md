@@ -16,15 +16,19 @@ npm i @ninja-labs/verify-pdf
 
 ## Verifying
 
+Verify the digital signature of the pdf and extract the certificates details
+
 ```javascript
 const verifyPDF = require('@ninja-labs/verify-pdf');
 ...
 
 const signedPdfBuffer = getSignedPDFBuffer();
-const { verified } = verifyPDF(signedPdfBuffer);
+const { verified, meta } = verifyPDF(signedPdfBuffer);
 ```
 
 ## Certificates
+
+You can get the details of the certificate chain by using the following api.
 
 ```javascript
 const { getCertificatesInfoFromPDF } = require('@ninja-labs/verify-pdf');
@@ -33,6 +37,11 @@ const { getCertificatesInfoFromPDF } = require('@ninja-labs/verify-pdf');
 const signedPdfBuffer = getSignedPDFBuffer();
 const certs = getCertificatesInfoFromPDF(signedPdfBuffer);
 ```
+Each certificate will contain the following properties:
+
+* issuedBy: The issuer of the certificate.
+* issuedTo: The owner of the certificate.
+* validityPeriod: The start and end time of the certificate
 
 ## Dependencies
 
