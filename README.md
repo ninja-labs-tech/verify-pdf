@@ -17,11 +17,21 @@ npm i @ninja-labs/verify-pdf
 ## Verifying
 
 ```javascript
-const verifyPDF = require('@ninja-labs/verify-pdf');
+const { verifyPDF } = require('@ninja-labs/verify-pdf');
 ...
 
 const signedPdfBuffer = getSignedPDFBuffer();
 const { verified } = verifyPDF(signedPdfBuffer);
+```
+
+## Certificates
+
+```javascript
+const { getCertificatesInfoFromPDF } = require('@ninja-labs/verify-pdf');
+...
+
+const signedPdfBuffer = getSignedPDFBuffer();
+const certs = getCertificatesInfoFromPDF(signedPdfBuffer);
 ```
 
 ## Dependencies
