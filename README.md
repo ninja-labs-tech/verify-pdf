@@ -41,7 +41,9 @@ Each certificate will contain the following properties:
 
 * issuedBy: The issuer of the certificate.
 * issuedTo: The owner of the certificate.
-* validityPeriod: The start and end time of the certificate
+* validityPeriod: The start and end date of the certificate.
+* pemCertificate: Certificate in pem format.
+* clientCertificate: true for the client certificate. 
 
 ## Dependencies
 
