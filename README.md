@@ -23,8 +23,19 @@ const verifyPDF = require('@ninja-labs/verify-pdf');
 ...
 
 const signedPdfBuffer = getSignedPDFBuffer();
-const { verified, meta } = verifyPDF(signedPdfBuffer);
+const { 
+    verified, 
+    authenticity, 
+    integrity, 
+    expired,
+    meta 
+} = verifyPDF(signedPdfBuffer);
 ```
+* verified: The overall status of verification process.
+* authenticity: Indicates if the validity of the certificate chain and the root CA.
+* integrity: Indicates if the pdf has been tampered with or not.
+* expired: Indicates if any of the certificates has expired.
+* meta: Object containing the certificates details. 
 
 ## Certificates
 
