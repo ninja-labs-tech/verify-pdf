@@ -22,20 +22,20 @@ Verify the digital signature of the pdf and extract the certificates details
 const verifyPDF = require('@ninja-labs/verify-pdf');
 ...
 
-const signedPdfBuffer = getSignedPDFBuffer();
-const { 
-    verified, 
-    authenticity, 
-    integrity, 
+const {
+    verified,
+    authenticity,
+    integrity,
     expired,
-    meta 
+    meta
 } = verifyPDF(signedPdfBuffer);
 ```
+* signedPdfBuffer: signed PDF as buffer.
 * verified: The overall status of verification process.
 * authenticity: Indicates if the validity of the certificate chain and the root CA.
 * integrity: Indicates if the pdf has been tampered with or not.
 * expired: Indicates if any of the certificates has expired.
-* meta: Object containing the certificates details. 
+* meta: Object containing the certificates details and signatureMeta (Reason, ContactInfo and Location).
 
 ## Certificates
 
@@ -45,16 +45,16 @@ You can get the details of the certificate chain by using the following api.
 const { getCertificatesInfoFromPDF } = require('@ninja-labs/verify-pdf');
 ...
 
-const signedPdfBuffer = getSignedPDFBuffer();
 const certs = getCertificatesInfoFromPDF(signedPdfBuffer);
 ```
+* signedPdfBuffer: signed PDF as buffer.
 Each certificate will contain the following properties:
 
 * issuedBy: The issuer of the certificate.
 * issuedTo: The owner of the certificate.
 * validityPeriod: The start and end date of the certificate.
 * pemCertificate: Certificate in pem format.
-* clientCertificate: true for the client certificate. 
+* clientCertificate: true for the client certificate.
 
 ## Dependencies
 
