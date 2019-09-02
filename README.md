@@ -48,6 +48,7 @@ const { getCertificatesInfoFromPDF } = require('@ninja-labs/verify-pdf');
 const certs = getCertificatesInfoFromPDF(signedPdfBuffer);
 ```
 * signedPdfBuffer: signed PDF as buffer.
+
 Each certificate will contain the following properties:
 
 * issuedBy: The issuer of the certificate.
