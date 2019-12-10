@@ -58,6 +58,6 @@
     "jest": "^24.9.0",
     "lint-staged": "^9.2.5",
     "node-signpdf": "^1.0.2",
-    "pdfkit": "^0.10.0"
+    "pdfkit": "^0.11.0"
   }
 }
