@@ -1,19 +1,8 @@
 ROAD MAP:
 -------------
 
-1- Change return from verify method to include:
+1- Support multiple signatures
 
-    a- Overall status
+2- Trust custom root certificats (CAs)
 
-    b- Integrity status
-
-    c- Cert trust status
-
-    d- Signature metadata
-
-
-2- Create cli version from lib
-
-3- Support multiple signatures
-
-4- Support browser
+3- Create cli version from lib
