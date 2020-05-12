@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/ninja-labs-tech/verify-pdf.svg?branch=master)](https://travis-ci.com/ninja-labs-tech/verify-pdf)
 
-verify pdf files in JS.
+verify pdf files in JS (supports both node.js & browser).
 
 ## Verifying PDF signature
 
@@ -14,13 +14,25 @@ The signed PDF file has the public certificate embedded in it, so all we need to
 npm i @ninja-labs/verify-pdf
 ```
 
+## Importing
+
+```javascript
+// CommonJS require
+const verifyPDF = require('@ninja-labs/verify-pdf');  
+
+// ES6 imports
+import verifyPDF from '@ninja-labs/verify-pdf';
+```
+
 ## Verifying
 
 Verify the digital signature of the pdf and extract the certificates details
 
+### Node.js
+
 ```javascript
 const verifyPDF = require('@ninja-labs/verify-pdf');
-...
+const signedPdfBuffer = fs.readFileSync('yourPdf');
 
 const {
     verified,
@@ -30,6 +42,22 @@ const {
     meta
 } = verifyPDF(signedPdfBuffer);
 ```
+
+### Browser
+
+```javascript
+import verifyPDF from '@ninja-labs/verify-pdf';
+
+const readFile = (e) => {
+    const file = e.target.files[0]
+    let reader = new FileReader();
+    reader.onload = function(e) {
+        const { verified } = verifyPDF(reader.result);
+    }
+    reader.readAsArrayBuffer(file);
+};
+```
+
 * signedPdfBuffer: signed PDF as buffer.
 * verified: The overall status of verification process.
 * authenticity: Indicates if the validity of the certificate chain and the root CA.
@@ -42,20 +70,23 @@ const {
 You can get the details of the certificate chain by using the following api.
 
 ```javascript
-const { getCertificatesInfoFromPDF } = require('@ninja-labs/verify-pdf');
-...
+const { getCertificatesInfoFromPDF } = require('@ninja-labs/verify-pdf');  // require
 
+import  { getCertificatesInfoFromPDF } from '@ninja-labs/verify-pdf';  // ES6 
+```
+
+```javascript
 const certs = getCertificatesInfoFromPDF(signedPdfBuffer);
 ```
 * signedPdfBuffer: signed PDF as buffer.
 
-Each certificate will contain the following properties:
+* certs:
 
-* issuedBy: The issuer of the certificate.
-* issuedTo: The owner of the certificate.
-* validityPeriod: The start and end date of the certificate.
-* pemCertificate: Certificate in pem format.
-* clientCertificate: true for the client certificate.
+    * issuedBy: The issuer of the certificate.
+    * issuedTo: The owner of the certificate.
+    * validityPeriod: The start and end date of the certificate.
+    * pemCertificate: Certificate in pem format.
+    * clientCertificate: true for the client certificate.
 
 ## Dependencies
 
