@@ -10,7 +10,6 @@ script:
 deploy:
   provider: npm
   email: mohammedessehemy@gmail.com
-  api_key:
-    secure: $NPM_TOKEN
+  api_key: $NPM_TOKEN
   on:
     tags: true
