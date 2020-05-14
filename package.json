@@ -1,6 +1,6 @@
 {
   "name": "@ninja-labs/verify-pdf",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "verify pdf files in JS",
   "main": "lib/index.js",
   "engines": {
