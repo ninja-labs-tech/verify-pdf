@@ -49,7 +49,7 @@
     }
   ],
   "dependencies": {
-    "node-forge": "^0.9.1"
+    "node-forge": "^0.10.0"
   },
   "devDependencies": {
     "eslint": "^6.2.2",
