@@ -18,7 +18,7 @@ npm i @ninja-labs/verify-pdf
 
 ```javascript
 // CommonJS require
-const verifyPDF = require('@ninja-labs/verify-pdf');  
+const verifyPDF = require('@ninja-labs/verify-pdf');
 
 // ES6 imports
 import verifyPDF from '@ninja-labs/verify-pdf';
@@ -63,7 +63,7 @@ const readFile = (e) => {
 * authenticity: Indicates if the validity of the certificate chain and the root CA.
 * integrity: Indicates if the pdf has been tampered with or not.
 * expired: Indicates if any of the certificates has expired.
-* meta: Object containing the certificates details and signatureMeta (Reason, ContactInfo and Location).
+* meta: Object containing the certificates details and signatureMeta (Reason, ContactInfo, Location and Name).
 
 ## Certificates
 
@@ -72,7 +72,7 @@ You can get the details of the certificate chain by using the following api.
 ```javascript
 const { getCertificatesInfoFromPDF } = require('@ninja-labs/verify-pdf');  // require
 
-import  { getCertificatesInfoFromPDF } from '@ninja-labs/verify-pdf';  // ES6 
+import  { getCertificatesInfoFromPDF } from '@ninja-labs/verify-pdf';  // ES6
 ```
 
 ```javascript
