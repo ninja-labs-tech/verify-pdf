@@ -39,7 +39,7 @@ const {
     authenticity,
     integrity,
     expired,
-    meta
+    signatures
 } = verifyPDF(signedPdfBuffer);
 ```
 
@@ -60,10 +60,10 @@ const readFile = (e) => {
 
 * signedPdfBuffer: signed PDF as buffer.
 * verified: The overall status of verification process.
-* authenticity: Indicates if the validity of the certificate chain and the root CA.
-* integrity: Indicates if the pdf has been tampered with or not.
+* authenticity: Indicates if the validity of the certificate chain and the root CA (overall in case of multiple signatures).
+* integrity: Indicates if the pdf has been tampered with or not (overall in case of multiple signatures).
 * expired: Indicates if any of the certificates has expired.
-* meta: Object containing the certificates details and signatureMeta (Reason, ContactInfo, Location and Name).
+* signatures: Array that contains the certificate details and signatureMeta (Reason, ContactInfo, Location and Name) for each signature.
 
 ## Certificates
 
@@ -72,7 +72,8 @@ You can get the details of the certificate chain by using the following api.
 ```javascript
 const { getCertificatesInfoFromPDF } = require('@ninja-labs/verify-pdf');  // require
 
-import  { getCertificatesInfoFromPDF } from '@ninja-labs/verify-pdf';  // ES6
+import { getCertificatesInfoFromPDF } from '@ninja-labs/verify-pdf';  // ES6
+
 ```
 
 ```javascript
