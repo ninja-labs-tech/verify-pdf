@@ -63,7 +63,7 @@ const readFile = (e) => {
 * authenticity: Indicates if the validity of the certificate chain and the root CA (overall in case of multiple signatures).
 * integrity: Indicates if the pdf has been tampered with or not (overall in case of multiple signatures).
 * expired: Indicates if any of the certificates has expired.
-* signatures: Array that contains the certificate details and signatureMeta (Reason, ContactInfo and Location) for each signature.
+* signatures: Array that contains the certificate details and signatureMeta (Reason, ContactInfo, Location and Name) for each signature.
 
 ## Certificates
 
@@ -73,6 +73,7 @@ You can get the details of the certificate chain by using the following api.
 const { getCertificatesInfoFromPDF } = require('@ninja-labs/verify-pdf');  // require
 
 import { getCertificatesInfoFromPDF } from '@ninja-labs/verify-pdf';  // ES6
+
 ```
 
 ```javascript
